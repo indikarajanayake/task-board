@@ -1,0 +1,33 @@
+.todo_item{
+
+	display:block;
+	height:50px;
+	position:relative;
+	overflow: hidden;
+	border:1px solid #ccc;
+	margin: 10px;
+	width: 280px;
+
+
+}
+
+.todo_list{
+ 	display:block;
+	height:auto;
+	position: relative;
+	overflow:hidden;
+	border:2px solid #ccc;
+	margin:10px;
+	width:380px;
+
+}
+
+.todo_list .input_div{
+	margin:50px;
+
+}
+.todo_list>h3{
+	text-align:center;
+
+}
+

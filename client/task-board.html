@@ -1,0 +1,39 @@
+<head>
+
+	<title>Task Board</title>
+</head>
+
+<body>
+	<div>
+		<div id ="todoListDiv">
+			{{>todos}}
+		</div>
+	</div>
+</body>	
+
+<template name="todos">
+	<div class="todo_list">
+		<h3> TODO LIST</h3>
+		<ul>
+			{{#each todos}}
+				{{> todo_item}}
+			{{/each}}
+		</ul>
+		<div class="input_div">
+		<input type="text" id="new-task" value="" />
+		<input type="button" class="button" value="add" id="new-task-btn"/>		
+		</div>	
+</div>
+</template>
+
+
+<template name="todo_item">
+	<li class="todo_item">
+		<div>
+			<a class="icon-trash" id="remove-btn" text='{{text}}' style="float:right"></a>
+			<div id="{{text}}" style="float:left">{{text}}</div>
+			<div style="clear:both"></div>
+		</div>
+		
+	</li>
+</template>
