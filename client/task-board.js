@@ -16,6 +16,9 @@ Deps.autorun(function(){
 Template.todos.todos = function(){
 	return Todos.find();
 };
+Template.doing.doing = function(){
+	return Doing.find();
+};
 
 Template.todos.events({
 	'click #new-task-btn': function(event){
