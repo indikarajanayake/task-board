@@ -8,7 +8,7 @@ Meteor.methods({
 		}				
 	},
 	removeTask: function(text){
-		Todos.remove({text:text});
-	}
-
+		Todos.remove(text);
+		}
+	
 });

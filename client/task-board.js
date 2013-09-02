@@ -37,7 +37,10 @@ Template.todos.events({
 
 Template.todo_item.events({
 	'click .icon-trash' : function(){
-		Meteor.call("removeTask", $(this).attr('text'), function(err,results){
+	
+
+
+		Meteor.call("removeTask", $(this).attr("_id"), function(err,results){
 			if(err){
 				alert("Could not delete the task");
 			}
