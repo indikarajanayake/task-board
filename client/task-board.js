@@ -9,14 +9,16 @@ Done	= new Meteor.Collection("done");
 
 //Subscribe to todo collection
 Deps.autorun(function(){
- Meteor.subscribe("todos");
+
+	 Meteor.subscribe("todos");
+	 Meteor.subscribe("doings");
 	
 });
 
 Template.todos.todos = function(){
 	return Todos.find();
 };
-Template.doing.doing = function(){
+Template.doing.doings = function(){
 	return Doing.find();
 };
 
@@ -48,3 +50,55 @@ Template.todo_item.events({
 	}		
 
 });
+
+Template.todo_item.rendered =function(){
+    $(".draggable").draggable();
+};
+
+Template.doing.rendered = function(){
+	$(".draggable").draggable();
+};
+
+
+Template.doing.rendered = function(){
+	
+	 $( ".tododroppable" ).droppable({
+    		  drop: function( event, ui ) {
+				var doingId = ui.draggable.attr("id");
+				
+				Meteor.call("backTodo", doingId, function(err, result){
+					if(err){
+						alert("Could not add to doing list");
+					}
+				
+				});
+			}
+    });
+
+	$(".draggable").draggable();
+}
+
+Template.todos.rendered = function(){
+	
+	 $( ".doingdroppable" ).droppable({
+
+    		  drop: function( event, ui ) {
+	
+				var doingId = ui.draggable.attr("id");
+				
+				Meteor.call("addDoing", doingId, function(err, result){
+					if(err){
+						alert("Could not add to doing list");
+					}
+				
+				});
+			}
+    });
+
+	$(".draggable").draggable();
+}
+
+
+
+
+;

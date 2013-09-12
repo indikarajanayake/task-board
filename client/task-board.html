@@ -18,11 +18,11 @@
 <template name="todos">
 	<div class="todo_list">
 		<h3> TODO LIST</h3>
-		<ul>
+		<div class="tododroppable ui-widget-header">
 			{{#each todos}}
 				{{> todo_item}}
 			{{/each}}
-		</ul>
+		</div>
 		<div class="input_div">
 		<input type="text" id="new-task" value="" />
 		<input type="button" class="button" value="add" id="new-task-btn"/>		
@@ -31,33 +31,41 @@
 </template>
 
 
-<template name="todo_item">
-	<li class="todo_item">
+<template name="todo_item" >
+	<div class="todo_item draggable ui-widget-content" id="{{_id}}">
 		<div>
 			<a class="icon-trash" id="{{_id}}" text_id='{{_id}}' style="float:right"></a>
 			<div id="{{text}}" style="float:left">{{text}}</div>
 			<div style="clear:both"></div>
 		</div>
 		
-	</li>
+	</div>
 </template>
 
 
 
 <template name="doing">
-	<div class="doing_list">
+	<div class="doing_list ">
 
 		<h3> DOING LIST</h3>
-		<ul>
-			{{#each doing}}
+		<div class="doingdroppable ui-widget-header"> 
+			{{#each doings}}
 				{{> doing_item}}
 			{{/each}}
-		</ul>
+		</div>
 	</div>
 </template>
 
 <template name="doing_item">
-	<li>
-		<div>{{text}}</div>
-	</li>
+	<div>
+	
+	<div class="doing_item draggable ui-widget-content" id="{{_id}}">
+		<div>
+	
+			<div id="{{text}}" style="float:left">{{text}}</div>
+			<div style="clear:both"></div>
+		</div>
+		
+	</div>
+	</div>
 </template>

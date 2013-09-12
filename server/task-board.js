@@ -4,11 +4,13 @@ Doing 	= new Meteor.Collection("doings");
 
 Done	= new Meteor.Collection("done");
 
+Doing.remove();
+
 Meteor.publish("todos", function(){
 	return Todos.find();
 });
 
-Meteor.publish("doing", function(){
+Meteor.publish("doings", function(){
 	return Doing.find();
 
 });
