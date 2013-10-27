@@ -11,7 +11,7 @@
 .todo_item{
 
 	display:block;
-	height:50px;
+	height:100px;
 	position:relative;
 	border:1px solid #ccc;
 	margin: 10px;

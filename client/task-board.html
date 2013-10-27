@@ -10,8 +10,6 @@
 		</div>
 		<div id="doingListDiv">
 			{{> doing}}
-		</div>
-		
 	</div>
 </body>	
 
@@ -25,7 +23,7 @@
 		</div>
 		<div class="input_div">
 		<input type="text" id="new-task" value="" />
-		<input type="button" class="button" value="add" id="new-task-btn"/>		
+		<input type="button" class="btn btn-primary" value="add" id="new-task-btn"/>		
 		</div>	
 </div>
 </template>
@@ -33,10 +31,17 @@
 
 <template name="todo_item" >
 	<div class="todo_item draggable ui-widget-content" id="{{_id}}">
-		<div>
-			<a class="icon-trash" id="{{_id}}" text_id='{{_id}}' style="float:right"></a>
+ 		<a class="icon-trash" id="{{_id}}" text_id='{{_id}}' style="float:right"></a>
+		<a class="icon-edit" id="{{_id}}" style="float:right"></a>
+		<div class="display_div">
+			
 			<div id="{{text}}" style="float:left">{{text}}</div>
 			<div style="clear:both"></div>
+		</div>
+		<div class="edit_div">
+			<textarea class"edit-text" id="{{_id}}">{{text}}</textarea>
+			<input type"button" class="edit-btn btn btn-primary" id="{{_id}}" value="EDIT"/>
+
 		</div>
 		
 	</div>

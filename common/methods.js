@@ -25,6 +25,9 @@ Meteor.methods({
 		Todos.insert(task);
 		Doing.remove(id);
 		}
+	},
+	editTask: function(task){
+		Todos.update(task.id, {$set :{text: task.text}});
 	}	
 
 	

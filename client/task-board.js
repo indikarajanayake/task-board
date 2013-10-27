@@ -39,15 +39,27 @@ Template.todos.events({
 
 Template.todo_item.events({
 	'click .icon-trash' : function(){
-	
-
 
 		Meteor.call("removeTask", $(this).attr("_id"), function(err,results){
 			if(err){
 				alert("Could not delete the task");
 			}
 		});			
-	}		
+	},
+
+	'click .edit-btn' : function(event){
+		var editTask =  {id: $(this).attr("_id"), text:$("textarea#"+$(this).attr("_id")).val() }
+		Meteor.call("editTask", editTask, function(err, result){
+
+			if(err){
+				alert("Could not edit the task");
+
+			}
+		});
+
+		
+	}				
+		
 
 });
 
@@ -79,6 +91,10 @@ Template.doing.rendered = function(){
 }
 
 Template.todos.rendered = function(){
+	//show hide the edit and display divs
+	$(".edit_div").hide();
+	$(".display_div").show();
+
 	
 	 $( ".doingdroppable" ).droppable({
 
@@ -96,6 +112,17 @@ Template.todos.rendered = function(){
     });
 
 	$(".draggable").draggable();
+
+		
+	$("a.icon-edit").on("click", function(){
+		$(this).siblings(".display_div").hide();
+		$(this).siblings(".edit_div").show();
+		
+	});
+
+	
+
+
 }
 
 
