@@ -32,8 +32,9 @@
 }
 
 .doing_list >div{
-
-	height:400px;
+	
+	min-height:400px;
+	height:auto;
 }
 
 .doing_item{
@@ -70,6 +71,6 @@
 
 .todo_list .tododroppable{
 
-	height:400px;
+	min-height:400px;
 }
 

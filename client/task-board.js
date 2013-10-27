@@ -33,6 +33,7 @@ Template.todos.events({
 				}
 			});
 		}
+		$("#new-task").val("");
 	}
 	
 });
