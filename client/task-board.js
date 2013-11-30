@@ -57,11 +57,7 @@ Template.todo_item.events({
 
 			}
 		});
-
-		
 	}				
-		
-
 });
 
 Template.todo_item.rendered =function(){
@@ -74,11 +70,9 @@ Template.doing.rendered = function(){
 
 
 Template.doing.rendered = function(){
-	
 	 $( ".tododroppable" ).droppable({
     		  drop: function( event, ui ) {
-				var doingId = ui.draggable.attr("id");
-				
+				var doingId = ui.draggable.attr("id");				
 				Meteor.call("backTodo", doingId, function(err, result){
 					if(err){
 						alert("Could not add to doing list");
@@ -86,7 +80,7 @@ Template.doing.rendered = function(){
 				
 				});
 			}
-    });
+    	});
 
 	$(".draggable").draggable();
 }
@@ -95,38 +89,20 @@ Template.todos.rendered = function(){
 	//show hide the edit and display divs
 	$(".edit_div").hide();
 	$(".display_div").show();
-
-	
-	 $( ".doingdroppable" ).droppable({
-
+	$( ".doingdroppable" ).droppable({
     		  drop: function( event, ui ) {
-	
 				var doingId = ui.draggable.attr("id");
-				
 				Meteor.call("addDoing", doingId, function(err, result){
 					if(err){
 						alert("Could not add to doing list");
-					}
-				
+					}				
 				});
 			}
-    });
-
-	$(".draggable").draggable();
-
-		
+        });
+	$(".draggable").draggable();	
 	$("a.icon-edit").on("click", function(){
 		$(this).siblings(".display_div").hide();
 		$(this).siblings(".edit_div").show();
 		
 	});
-
-	
-
-
-}
-
-
-
-
-;
+};
